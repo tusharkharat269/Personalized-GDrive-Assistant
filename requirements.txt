@@ -12,6 +12,7 @@ langgraph-checkpoint-postgres>=2.0.0
 
 # Vector Store
 chromadb>=0.5.0
+langchain-chroma>=0.1.0
 
 # Database
 sqlalchemy>=2.0.0
