@@ -38,8 +38,10 @@ docker compose up -d           # API on :8000, Postgres on :5432
 
 ### Local dev (no Docker)
 
+Requires **Python 3.14+**.
+
 ```bash
-python -m venv venv && venv\Scripts\activate
+py -3.14 -m venv venv && venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
