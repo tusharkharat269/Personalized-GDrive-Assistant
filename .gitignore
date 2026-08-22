@@ -1,0 +1,72 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# --- Virtual Environments ---
+myenv/
+.myenv/
+venv/
+ENV/
+.env
+env.bak/
+venv.bak/
+.venv/
+.pyenv/
+.conda/
+pip-wheel-metadata/
+
+# --- Distribution / Packaging ---
+build/
+dist/
+develop-eggs/
+.installed.cfg
+*.egg-info/
+.eggs/
+
+# --- Test / Coverage ---
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+*.cover
+*.py,cover
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints
+*.nbconvert.ipynb
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Logs & Temp Files ---
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+
+.notebooks/
+notebooks/
+notebooks
+
+data
+data/
+.data
