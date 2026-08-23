@@ -98,9 +98,10 @@ async def googleLogin(response: Response):
         key=_PKCE_COOKIE_NAME,
         value=payload,
         httponly=True,
-        secure=not settings.DEBUG,
-        samesite="lax",
+        secure=True,
+        samesite="none",
         max_age=10 * 60,
+        path="/",
     )
     return AuthUrlResponse(authUrl=authUrl)
 
@@ -134,8 +135,14 @@ async def googleCallback(
         logger.error("google_oauth_token_exchange_failed", error=str(e))
         raise AppException(400, "OAUTH_FAILED", "Failed to exchange authorization code")
 
-    # One-time cookie
-    response.delete_cookie(_PKCE_COOKIE_NAME)
+    # One-time cookie — attributes must match set_cookie or the browser keeps it
+    response.delete_cookie(
+        _PKCE_COOKIE_NAME,
+        path="/",
+        secure=True,
+        httponly=True,
+        samesite="none",
+    )
     credentials = flow.credentials
 
     async with httpx.AsyncClient() as client:
@@ -266,9 +273,10 @@ async def googleReauth(
         key=_PKCE_COOKIE_NAME,
         value=payload,
         httponly=True,
-        secure=not settings.DEBUG,
-        samesite="lax",
+        secure=True,
+        samesite="none",
         max_age=10 * 60,
+        path="/",
     )
     return AuthUrlResponse(authUrl=authUrl)
 
